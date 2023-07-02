@@ -32,7 +32,6 @@ jobs:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       BUILD_MODE: release
 
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -55,9 +54,9 @@ jobs:
       run: |
         bash ./dependencies/vcpkg/bootstrap-vcpkg.sh
 
-     - name: 'Setup NuGet Credentials for vcpkg'
-       shell: 'bash'
-       run: |
+    - name: 'Setup NuGet Credentials for vcpkg'
+      shell: 'bash'
+      run: |
         mono `./dependencies/vcpkg/vcpkg fetch nuget | tail -n 1` \
         sources add \
         -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
