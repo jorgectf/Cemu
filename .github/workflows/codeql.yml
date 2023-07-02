@@ -56,8 +56,8 @@ jobs:
         bash ./dependencies/vcpkg/bootstrap-vcpkg.sh
 
      - name: 'Setup NuGet Credentials for vcpkg'
-      shell: 'bash'
-      run: |
+       shell: 'bash'
+       run: |
         mono `./dependencies/vcpkg/vcpkg fetch nuget | tail -n 1` \
         sources add \
         -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
